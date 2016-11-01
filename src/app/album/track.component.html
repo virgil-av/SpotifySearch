@@ -1,0 +1,20 @@
+<div class="well">
+
+     <i *ngIf="id != activeId" (click)="playPreview('play', id)" class="glyphicon pull-left glyphicon-play"></i>
+     <i *ngIf="id == activeId" (click)="playPreview('stop')" class="glyphicon pull-left glyphicon-stop" ></i>
+
+  <div>
+
+      <h5>{{track.track_number}} - {{track.name}}</h5>
+    <a *ngIf="id != activeId" (click)="playPreview('play', id)" style="cursor: pointer">Preview Track</a>
+    <a *ngIf="id == activeId" (click)="playPreview('stop')" style="cursor: pointer">Close Preview</a>
+
+
+    <div  *ngIf="id == activeId && isToggled == 'play'">
+      <audio controls="" autoplay="" name="media"><source [src]="track.preview_url" type="audio/mpeg" ></audio>
+    </div>
+  </div>
+</div>
+
+
+
